@@ -7,7 +7,7 @@ FSJS project 2 - List Filter and Pagination
 let pageNumber = 1;
 const studentList = document.getElementsByClassName('student-list')[0];
 
-// This is a function to hide all of the items in the list excpet for the ten I want to show
+// This is a function to hide all of the items in the list except for the ten I want to show
 const showPage = (list, page) => {
     const listLength = list.childElementCount;
     const firstElementIndex = (page - 1) * 10;
@@ -27,7 +27,9 @@ const showPage = (list, page) => {
 const appendPageLinks = (list) => {
     const numPages = Math.ceil(list.childElementCount / 10);
 
-    document.getElementsByClassName('pagination')[0].remove();
+    try {
+        document.getElementsByClassName('pagination')[0].remove();
+    } catch (e) { }
 
     let paginationDiv = document.createElement('div');
     paginationDiv.className = 'pagination';
